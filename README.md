@@ -1,4 +1,4 @@
-A simple DOPC frontend written on React (created with Vite). Styling done with plain css and flexbox. Testing performed with cypress.
+A simple DOPC frontend written on React and Typescript (created with Vite). Styling done with plain css and flexbox. Testing performed with cypress.
 
 ** Instructions to run client **
 
