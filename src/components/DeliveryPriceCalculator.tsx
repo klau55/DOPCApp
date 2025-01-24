@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { fetchVenueStatic, fetchVenueDynamic } from "../services/venueApi";
+import React, { useState } from 'react';
+import { fetchVenueStatic, fetchVenueDynamic } from '../utils/venueApi';
 import {
   calculateDistanceMeters,
   findDistanceRange,
   calculateDeliveryFee,
   calculateSmallOrderSurcharge,
-} from "../services/math";
-import validateInputs from "../services/validation";
-import DOPCForm from "./DOPCForm";
-import PriceBreakdown from "./PriceBreakdown";
+} from '../utils/math';
+import validateInputs from '../utils/validation';
+import DOPCForm from './DeliveryPriceForm';
+import PriceBreakdown from './PriceBreakdown';
 
 interface PriceBreakdownData {
   cartValue: number;
@@ -19,17 +19,20 @@ interface PriceBreakdownData {
 }
 
 const DOPC = () => {
-  const [venueSlug, setVenueSlug] = useState<string>("home-assignment-venue-helsinki");
-  const [cartValue, setCartValue] = useState<string>("");
-  const [userLatitude, setUserLatitude] = useState<string>("60.17094");
-  const [userLongitude, setUserLongitude] = useState<string>("24.93087");
+  const [venueSlug, setVenueSlug] = useState<string>(
+    'home-assignment-venue-helsinki'
+  );
+  const [cartValue, setCartValue] = useState<string>('');
+  const [userLatitude, setUserLatitude] = useState<string>('60.17094');
+  const [userLongitude, setUserLongitude] = useState<string>('24.93087');
 
-  const [priceBreakdown, setPriceBreakdown] = useState<PriceBreakdownData | null>(null);
+  const [priceBreakdown, setPriceBreakdown] =
+    useState<PriceBreakdownData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const handleGetLocation = () => {
     if (!navigator.geolocation) {
-      setError("Geolocation is not supported by this browser");
+      setError('Geolocation is not supported by this browser');
       return;
     }
     navigator.geolocation.getCurrentPosition(
@@ -110,12 +113,13 @@ const DOPC = () => {
         deliveryDistance: distance,
         totalPrice,
       });
-    } catch (err: unknown) { // Changed from any to unknown
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("An unexpected error occurred.");
-        }
+    } catch (err: unknown) {
+      // Changed from any to unknown
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('An unexpected error occurred.');
+      }
     }
   };
 
