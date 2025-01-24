@@ -1,8 +1,8 @@
-import { 
+import {
   calculateDistanceMeters,
   findDistanceRange,
   calculateDeliveryFee,
-  calculateSmallOrderSurcharge 
+  calculateSmallOrderSurcharge,
 } from './math';
 
 describe('calculateDistanceMeters', () => {
