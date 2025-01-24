@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { fetchVenueStatic, fetchVenueDynamic } from '../utils/venueApi';
+import { fetchVenueStatic, fetchVenueDynamic } from '../apis/venueApi';
 import {
   calculateDistanceMeters,
   findDistanceRange,
