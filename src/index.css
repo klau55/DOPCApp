@@ -32,8 +32,6 @@ body {
 
 label {
   display: block;
-  margin: 1rem 0 5.5rem;
-  font-weight: bold;
   font-size: 0.95rem;
 }
 
@@ -49,7 +47,6 @@ input {
 
 button {
   display: inline-block;
-  margin-bottom: 0, 75rem;
   padding: 0.6rem 1.2rem;
   font-size: 0.95rem;
   font-weight: 500;

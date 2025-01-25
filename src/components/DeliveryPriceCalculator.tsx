@@ -134,7 +134,6 @@ const DeliveryPriceCalculator = () => {
         setUserLongitude={setUserLongitude}
         onGetLocation={handleGetLocation}
         onCalculate={handleCalculate}
-        handleCalculate={handleCalculate}
       />
       {error && <p className="error">{error}</p>}
       {priceBreakdown && <PriceBreakdown breakdown={priceBreakdown} />}
