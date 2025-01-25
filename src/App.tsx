@@ -1,4 +1,3 @@
-import React from 'react';
 import DOPC from './components/DeliveryPriceCalculator';
 import './index.css';
 

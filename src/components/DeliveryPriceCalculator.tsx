@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { fetchVenueStatic, fetchVenueDynamic } from '../apis/venueApi';
 import {
   calculateDistanceMeters,
@@ -19,12 +19,10 @@ interface PriceBreakdownData {
 }
 
 const DOPC = () => {
-  const [venueSlug, setVenueSlug] = useState<string>(
-    'home-assignment-venue-helsinki'
-  );
+  const [venueSlug, setVenueSlug] = useState<string>('');
   const [cartValue, setCartValue] = useState<string>('');
-  const [userLatitude, setUserLatitude] = useState<string>('60.17094');
-  const [userLongitude, setUserLongitude] = useState<string>('24.93087');
+  const [userLatitude, setUserLatitude] = useState<string>('');
+  const [userLongitude, setUserLongitude] = useState<string>('');
 
   const [priceBreakdown, setPriceBreakdown] =
     useState<PriceBreakdownData | null>(null);
