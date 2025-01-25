@@ -1,5 +1,5 @@
-import DOPC from './components/DeliveryPriceCalculator';
-import './index.css';
+import DOPC from "./components/DeliveryPriceCalculator";
+import "./index.css";
 
 const App = () => {
   return (

@@ -2,7 +2,7 @@ export const calculateDistanceMeters = (
   lat1: number,
   lng1: number,
   lat2: number,
-  lng2: number
+  lng2: number,
 ): number => {
   const R = 6371000; // Earth radius in meters
   const dLat = toRadians(lat2 - lat1);
@@ -33,7 +33,7 @@ interface DistanceRange {
  */
 export const findDistanceRange = (
   distance: number,
-  distanceRanges: DistanceRange[]
+  distanceRanges: DistanceRange[],
 ): { a: number; b: number } | null => {
   for (const range of distanceRanges) {
     if (range.max === 0) {
@@ -55,7 +55,7 @@ export const calculateDeliveryFee = (
   basePrice: number,
   a: number,
   b: number,
-  distance: number
+  distance: number,
 ): number => {
   const distanceComponent = Math.round((b * distance) / 10);
   return basePrice + a + distanceComponent;
@@ -66,7 +66,7 @@ export const calculateDeliveryFee = (
  */
 export const calculateSmallOrderSurcharge = (
   cartValue: number,
-  minNoSurcharge: number
+  minNoSurcharge: number,
 ): number => {
   const diff = minNoSurcharge - cartValue;
   return diff > 0 ? diff : 0;

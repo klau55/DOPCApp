@@ -1,5 +1,5 @@
 const BASE_URL =
-  'https://consumer-api.development.dev.woltapi.com/home-assignment-api/v1/venues';
+  "https://consumer-api.development.dev.woltapi.com/home-assignment-api/v1/venues";
 
 interface VenueStaticResponse {
   venue_raw: {
@@ -28,7 +28,7 @@ interface VenueDynamicResponse {
   };
 }
 export const fetchVenueStatic = async (
-  venueSlug: string
+  venueSlug: string,
 ): Promise<VenueStaticResponse> => {
   const response = await fetch(`${BASE_URL}/${venueSlug}/static`);
   if (!response.ok) {
@@ -38,7 +38,7 @@ export const fetchVenueStatic = async (
 };
 
 export const fetchVenueDynamic = async (
-  venueSlug: string
+  venueSlug: string,
 ): Promise<VenueDynamicResponse> => {
   const response = await fetch(`${BASE_URL}/${venueSlug}/dynamic`);
   if (!response.ok) {

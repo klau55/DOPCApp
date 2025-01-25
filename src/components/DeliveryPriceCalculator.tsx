@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { fetchVenueStatic, fetchVenueDynamic } from '../apis/venueApi';
+import { useState } from "react";
+import { fetchVenueStatic, fetchVenueDynamic } from "../apis/venueApi";
 import {
   calculateDistanceMeters,
   findDistanceRange,
   calculateDeliveryFee,
   calculateSmallOrderSurcharge,
-} from '../utils/math';
-import validateInputs from '../utils/validation';
-import DOPCForm from './DeliveryPriceForm';
-import PriceBreakdown from './PriceBreakdown';
+} from "../utils/math";
+import validateInputs from "../utils/validation";
+import DOPCForm from "./DeliveryPriceForm";
+import PriceBreakdown from "./PriceBreakdown";
 
 interface PriceBreakdownData {
   cartValue: number;
@@ -19,10 +19,10 @@ interface PriceBreakdownData {
 }
 
 const DOPC = () => {
-  const [venueSlug, setVenueSlug] = useState<string>('');
-  const [cartValue, setCartValue] = useState<string>('');
-  const [userLatitude, setUserLatitude] = useState<string>('');
-  const [userLongitude, setUserLongitude] = useState<string>('');
+  const [venueSlug, setVenueSlug] = useState<string>("");
+  const [cartValue, setCartValue] = useState<string>("");
+  const [userLatitude, setUserLatitude] = useState<string>("");
+  const [userLongitude, setUserLongitude] = useState<string>("");
 
   const [priceBreakdown, setPriceBreakdown] =
     useState<PriceBreakdownData | null>(null);
@@ -30,7 +30,7 @@ const DOPC = () => {
 
   const handleGetLocation = () => {
     if (!navigator.geolocation) {
-      setError('Geolocation is not supported by this browser');
+      setError("Geolocation is not supported by this browser");
       return;
     }
     navigator.geolocation.getCurrentPosition(
@@ -40,7 +40,7 @@ const DOPC = () => {
       },
       (err) => {
         setError(err.message);
-      }
+      },
     );
   };
 
@@ -81,7 +81,7 @@ const DOPC = () => {
         latUser,
         lngUser,
         latVenue,
-        lngVenue
+        lngVenue,
       );
 
       // Check range
@@ -94,13 +94,13 @@ const DOPC = () => {
       // Surcharges
       const smallOrderSurcharge = calculateSmallOrderSurcharge(
         cartValueCents,
-        order_minimum_no_surcharge
+        order_minimum_no_surcharge,
       );
       const deliveryFee = calculateDeliveryFee(
         base_price,
         distanceRange.a,
         distanceRange.b,
-        distance
+        distance,
       );
 
       const totalPrice = cartValueCents + smallOrderSurcharge + deliveryFee;
@@ -116,7 +116,7 @@ const DOPC = () => {
       if (err instanceof Error) {
         setError(err.message);
       } else {
-        setError('An unexpected error occurred.');
+        setError("An unexpected error occurred.");
       }
     }
   };

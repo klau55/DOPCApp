@@ -8,8 +8,8 @@ export interface DeliveryFormData {
 }
 
 declare global {
-  namespace Cypress {
-    interface Chainable<Subject = any> {
+    namespace Cypress {
+      interface Chainable {
       fillDeliveryForm(mockData?: Partial<DeliveryFormData>): Chainable<void>
       mockGeolocation(latitude: number, longitude: number): Chainable<void>
     }
