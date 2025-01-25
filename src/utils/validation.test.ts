@@ -31,8 +31,6 @@ describe("validateInputs", () => {
     expect(err).toMatch(/must be a number/);
   });
 
-  // ... And so on for lat/long out of range, empty, etc.
-
   it("returns null if all inputs are valid", () => {
     const err = validateInputs({
       venueSlug: "valid-venue",

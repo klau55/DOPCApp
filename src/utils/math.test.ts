@@ -51,7 +51,6 @@ describe("calculateDistanceMeters", () => {
       60.17095,
       24.93088,
     );
-    // Manually calculate expected distance or mock Math.round if necessary
     expect(typeof distance).toBe("number");
     expect(distance).toBe(Math.round(distance));
   });
@@ -61,7 +60,7 @@ describe("findDistanceRange", () => {
   const ranges = [
     { min: 0, max: 500, a: 0, b: 0 },
     { min: 500, max: 1000, a: 100, b: 1 },
-    { min: 1000, max: 0, a: 0, b: 0 }, // means no delivery beyond 1000
+    { min: 1000, max: 0, a: 0, b: 0 },
   ];
 
   it("returns the correct a/b for distance within the first range", () => {

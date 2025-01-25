@@ -5,6 +5,7 @@ import {
   findDistanceRange,
   calculateDeliveryFee,
   calculateSmallOrderSurcharge,
+  eurosToCents,
 } from "../utils/math";
 import validateInputs from "../utils/validation";
 import DeliveryPriceForm from "./DeliveryPriceForm";
@@ -62,7 +63,7 @@ const DeliveryPriceCalculator = () => {
 
     try {
       // Convert to cents
-      const cartValueCents = Math.round(parseFloat(cartValue) * 100);
+      const cartValueCents = eurosToCents(cartValue);
       const latUser = parseFloat(userLatitude);
       const lngUser = parseFloat(userLongitude);
 
@@ -112,7 +113,6 @@ const DeliveryPriceCalculator = () => {
         totalPrice,
       });
     } catch (err: unknown) {
-      // Changed from any to unknown
       if (err instanceof Error) {
         setError(err.message);
       } else {

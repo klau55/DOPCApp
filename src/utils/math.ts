@@ -82,3 +82,8 @@ export const formatEuros = (euros: number): string => euros.toFixed(2);
 export const formatCentsAsEuros = (cents: number): string => {
   return formatEuros(centsToEuros(cents));
 };
+
+export const eurosToCents = (euros: string): number => {
+  return Math.round(parseFloat(euros) * 100)
+}
+
