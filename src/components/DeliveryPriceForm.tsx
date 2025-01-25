@@ -1,6 +1,6 @@
 import React from "react";
 
-interface DOPCFormProps {
+interface DeliveryPriceFormProps {
   venueSlug: string;
   setVenueSlug: React.Dispatch<React.SetStateAction<string>>;
   cartValue: string;
@@ -15,7 +15,7 @@ interface DOPCFormProps {
   onCalculate: () => void;
 }
 
-const DOPCForm: React.FC<DOPCFormProps> = ({
+const DeliveryPriceForm: React.FC<DeliveryPriceFormProps> = ({
   venueSlug,
   setVenueSlug,
   cartValue,
@@ -82,4 +82,4 @@ const DOPCForm: React.FC<DOPCFormProps> = ({
   );
 };
 
-export default DOPCForm;
+export default DeliveryPriceForm;

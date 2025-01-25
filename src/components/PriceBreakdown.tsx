@@ -1,4 +1,5 @@
 import React from "react";
+import { formatCentsAsEuros } from "../utils/math";
 
 interface PriceBreakdownData {
   cartValue: number;
@@ -25,29 +26,19 @@ const PriceBreakdown: React.FC<PriceBreakdownProps> = ({ breakdown }) => {
     <div className="price-breakdown">
       <h2>Price breakdown</h2>
       <p>
-        Cart Value: <span data-raw-value={cartValue}>{cartValue / 100} €</span>
+        Cart Value: <span data-raw-value={cartValue}>{formatCentsAsEuros(cartValue)} €</span>
       </p>
       <p>
-        Delivery fee:{" "}
-        <span data-raw-value={deliveryFee}>
-          {(deliveryFee / 100).toFixed(2)} €
-        </span>
+        Delivery fee: <span data-raw-value={deliveryFee}>{formatCentsAsEuros(deliveryFee)} €</span>
       </p>
       <p>
-        Delivery distance:{" "}
-        <span data-raw-value={deliveryDistance}>{deliveryDistance} m</span>
+        Delivery distance: <span data-raw-value={deliveryDistance}>{deliveryDistance} m</span>
       </p>
       <p>
-        Small order surcharge:{" "}
-        <span data-raw-value={smallOrderSurcharge}>
-          {(smallOrderSurcharge / 100).toFixed(2)} €
-        </span>
+        Small order surcharge: <span data-raw-value={smallOrderSurcharge}>{formatCentsAsEuros(smallOrderSurcharge)} €</span>
       </p>
       <p>
-        Total price:{" "}
-        <span data-raw-value={totalPrice}>
-          {(totalPrice / 100).toFixed(2)} €
-        </span>
+        Total price: <span data-raw-value={totalPrice}>{formatCentsAsEuros(totalPrice)} €</span>
       </p>
     </div>
   );

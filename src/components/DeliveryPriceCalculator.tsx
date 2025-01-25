@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchVenueStatic, fetchVenueDynamic } from "../apis/venueApi";
+import { fetchVenueStatic, fetchVenueDynamic } from "../api/venueApi";
 import {
   calculateDistanceMeters,
   findDistanceRange,
@@ -7,7 +7,7 @@ import {
   calculateSmallOrderSurcharge,
 } from "../utils/math";
 import validateInputs from "../utils/validation";
-import DOPCForm from "./DeliveryPriceForm";
+import DeliveryPriceForm from "./DeliveryPriceForm";
 import PriceBreakdown from "./PriceBreakdown";
 
 interface PriceBreakdownData {
@@ -18,7 +18,7 @@ interface PriceBreakdownData {
   totalPrice: number;
 }
 
-const DOPC = () => {
+const DeliveryPriceCalculator = () => {
   const [venueSlug, setVenueSlug] = useState<string>("");
   const [cartValue, setCartValue] = useState<string>("");
   const [userLatitude, setUserLatitude] = useState<string>("");
@@ -123,7 +123,7 @@ const DOPC = () => {
 
   return (
     <>
-      <DOPCForm
+      <DeliveryPriceForm
         venueSlug={venueSlug}
         setVenueSlug={setVenueSlug}
         cartValue={cartValue}
@@ -142,4 +142,4 @@ const DOPC = () => {
   );
 };
 
-export default DOPC;
+export default DeliveryPriceCalculator;
