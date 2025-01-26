@@ -33,7 +33,7 @@ const DeliveryPriceForm: React.FC<DeliveryPriceFormProps> = ({
         <input
           data-test-id="venueSlug"
           type="text"
-          required = {true}
+          required={true}
           value={venueSlug}
           onChange={(e) => setVenueSlug(e.target.value)}
         />
@@ -44,7 +44,7 @@ const DeliveryPriceForm: React.FC<DeliveryPriceFormProps> = ({
         <input
           data-test-id="cartValue"
           type="text"
-          required = {true}
+          required={true}
           value={cartValue}
           onChange={(e) => setCartValue(e.target.value)}
         />
@@ -55,7 +55,7 @@ const DeliveryPriceForm: React.FC<DeliveryPriceFormProps> = ({
         <input
           data-test-id="userLatitude"
           type="text"
-          required = {true}
+          required={true}
           value={userLatitude}
           onChange={(e) => setUserLatitude(e.target.value)}
         />
@@ -66,14 +66,18 @@ const DeliveryPriceForm: React.FC<DeliveryPriceFormProps> = ({
         <input
           data-test-id="userLongitude"
           type="text"
-          required = {true}
+          required={true}
           value={userLongitude}
           onChange={(e) => setUserLongitude(e.target.value)}
         />
       </div>
 
       <div className="button-container">
-        <button type="button" onClick={onGetLocation} data-test-id="getLocation">
+        <button
+          type="button"
+          onClick={onGetLocation}
+          data-test-id="getLocation"
+        >
           Get location
         </button>
 
